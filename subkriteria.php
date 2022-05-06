@@ -1,5 +1,20 @@
 <?php
     include ("koneksi.php");
+
+    //ambil id dari query string
+    $id_kriteria= $_GET['id_kriteria'];
+
+    // buat query untuk ambil data kriteria dari database
+    $sql = "SELECT * FROM tb_kriteria WHERE id_kriteria='$id_kriteria'";
+    $query = mysqli_query($db, $sql);
+    $data_kriteria = mysqli_fetch_assoc($query);
+    $id = $data_kriteria['id_kriteria'];
+    $nama_kriteria= $data_kriteria['nama_kriteria'];
+
+    // buat query untuk ambil data subkriteria dari database berdasarkan kriteria
+    $sqlsub = "SELECT * FROM tb_subkriteria WHERE id_kriteria='$id'";
+    $querysub = mysqli_query($db, $sqlsub);
+    $data_subkriteria = mysqli_fetch_assoc($querysub);
 ?>
 
 <!DOCTYPE html>
@@ -22,45 +37,43 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Kriteria</h1>
+                        <h1 class="mt-4">Subkriteria: <?php echo $nama_kriteria ?></h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Kriteria</li>
+                            <li class="breadcrumb-item active"><a href="kriteria.php">Kriteria</a></li>
+                            <li class="breadcrumb-item active">Subkriteria</a></li>
                         </ol>
                         <ol class="breadcrumb mb-4">
-                            <a href="addkriteria.php" class="btn btn-primary">Add</a>
+                            <a href="addsubkriteria.php?id_kriteria=<?php echo $id ?>" class="btn btn-primary">Add Subkriteria</a>
                         </ol>
 
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Kriteria
+                                Subkriteria 
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Bobot</th>
-                                            <th>Cost/Benefit</th>
+                                            <th>Nama Subkriteria</th>
+                                            <th>Nilai</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $sql = $db->query('SELECT * FROM tb_kriteria');
-                                        while ($row = $sql->fetch_array()) {
+                                        $sql = $db->query("SELECT * FROM tb_subkriteria WHERE id_kriteria='$id'");
+                                        while ($rowsub = $sql->fetch_array()) {
                                         ?>
                                             <tr>
-                                            <td><?php echo $row[0] ?></td>
-                                            <td><?php echo $row[1] ?></td>
-                                            <td><?php echo $row[2] ?></td>
-                                            <td><?php echo $row[3] ?></td>
+                                            <td><?php echo $rowsub[0] ?></td>
+                                            <td><?php echo $rowsub[2] ?></td>
+                                            <td><?php echo $rowsub[3] ?></td>
                                             <td align="center" >
-                                                <a href="subkriteria.php?id_kriteria=<?php echo $row['id_kriteria'] ?>" class="btn btn-info">Subkriteria</a>
-                                                <a href="editkriteria.php?id_kriteria=<?php echo $row['id_kriteria'] ?>" class="btn btn-warning">Edit</a>
-                                                <a href="deletekriteria.php?id_kriteria=<?php echo $row['id_kriteria']?>" class='btn btn-danger' onclick = "return confirm('Yakin Data Akan Dihapus');">Delete</a>
+                                                <a href="editsubkriteria.php?id_subkriteria=<?php echo $rowsub['id_subkriteria'] ?>" class="btn btn-warning">Edit</a>
+                                                <a href="deletesubkriteria.php?id_subkriteria=<?php echo $rowsub['id_subkriteria']?>" class='btn btn-danger' onclick = "return confirm('Yakin Data Akan Dihapus');">Delete</a>
                                             </td>
                                             </tr>
                                         <?php } ?>

@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand ps-3" href="index.html">DSS ASIX</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
@@ -33,9 +33,31 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
-                    <a class="nav-link" href="kriteria.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <a class="nav-link collapsed" href="kriteria.php" data-bs-toggle="collapse" data-bs-target="#kriteriacollapseLayouts" aria-expanded="false" aria-controls="kriteriacollapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         Kriteria
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="kriteriacollapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <a class="nav-link" href="kriteria.php">
+                        Kriteria
+                    </a>
+                        <nav class="sb-sidenav-menu-nested nav">
+                        <?php
+                            include ("koneksi.php");
+ 
+                            // buat query untuk ambil data dari database
+                            $sql = "SELECT * FROM tb_kriteria";
+                            $query = mysqli_query($db, $sql);
+
+                            while($data_kriteria = mysqli_fetch_assoc($query)){?>
+                            <a class="nav-link" href="subkriteria.php?id_kriteria=<?php echo $data_kriteria['id_kriteria']; ?>"><?php echo $data_kriteria['nama_kriteria']; ?></a>
+                        <?php } ?>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="topsis.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Proses Topsis
                     </a>
                     <a class="nav-link" href="home.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
