@@ -1,4 +1,4 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" >
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.html">DSS ASIX</a>
     <!-- Sidebar Toggle-->
@@ -55,18 +55,18 @@
                         <?php } ?>
                         </nav>
                     </div>
-                    <a class="nav-link" href="topsis.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Proses Topsis
-                    </a>
                     <a class="nav-link" href="home.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Alternatif
-                    </a>
-                    <a class="nav-link" href="home.php">
+                    </a><a class="nav-link" href="dataanalisis.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Hasil
+                        Data Analisis
                     </a>
+                    <a class="nav-link" href="topsis.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Hasil Topsis
+                    </a>
+                
 
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -128,3 +128,4 @@
             </div>
         </nav>
     </div>
+    
