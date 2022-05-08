@@ -1,4 +1,5 @@
 <?php
+
     include('koneksi.php');
 
     $query="SELECT * FROM tb_kriteria";
@@ -45,7 +46,7 @@
     </head>
     <body class="sb-nav-fixed">
             <?php
-              include ('nav.php');
+            include ('nav.php');
             ?>
             <div id="layoutSidenav_content">
                 <main>
