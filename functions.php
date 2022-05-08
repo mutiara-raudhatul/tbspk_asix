@@ -18,7 +18,7 @@ function signup($data){
         return false;
     }
     //cek username
-    $result = mysqli_query($db,"SELECT username FROM users WHERE username = '$username'");
+    $result = mysqli_query($db,"SELECT username FROM tb_users WHERE username = '$username'");
 
     if(mysqli_fetch_assoc($result)){
         echo "<script>
@@ -28,6 +28,6 @@ function signup($data){
     }
 
     $password = password_hash($password, PASSWORD_DEFAULT);
-    mysqli_query($db, "INSERT INTO users VALUES('','$username','$password')");
+    mysqli_query($db, "INSERT INTO tb_users VALUES('','$username','$password')");
     return mysqli_affected_rows($db);
 }

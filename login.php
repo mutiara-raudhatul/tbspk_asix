@@ -12,7 +12,7 @@ if(isset($_POST['login'])){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $rs = mysqli_query($db,"SELECT * FROM users WHERE username = '$username'");
+    $rs = mysqli_query($db,"SELECT * FROM tb_users WHERE username = '$username'");
 
     if(mysqli_num_rows($rs) === 1){
         $row = mysqli_fetch_assoc($rs);
