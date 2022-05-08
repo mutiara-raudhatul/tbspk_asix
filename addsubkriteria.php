@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION["login"])){
+    header("Location: login.php");
+}
     include ("koneksi.php");
     $id_kriteria_get = $_GET['id_kriteria'];
     

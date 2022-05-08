@@ -56,7 +56,7 @@
                         <?php } ?>
                         </nav>
                     </div>
-                    <a class="nav-link" href="home.php">
+                    <a class="nav-link" href="alternatif.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Alternatif
                     </a><a class="nav-link" href="dataanalisis.php">

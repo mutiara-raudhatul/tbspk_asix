@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION["login"])){
+    header("Location: login.php");
+}
     include ("koneksi.php");
 
     // kalau tidak ada id di query string
