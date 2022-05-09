@@ -47,6 +47,13 @@ if(!isset($_SESSION["login"])){
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Alternatif</th>
+                                            <th>Kelas Pokdakan</th>
+                                            <th>Usia Pokdakan</th>
+                                            <th>Luas Kolam</th>
+                                            <th>Lokasi Kolam</th>
+                                            <th>Jumlah Anggota</th>
+                                            <th>Rata-rata Produksi</th>
+                                            <th>Domisili Anggota</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -58,6 +65,13 @@ if(!isset($_SESSION["login"])){
                                             <tr>
                                             <td><?php echo $row[0] ?></td>
                                             <td><?php echo $row[1] ?></td>
+                                            <td><?php echo $row[2] ?></td>
+                                            <td><?php echo $row[3] ?></td>
+                                            <td><?php echo $row[4] ?></td>
+                                            <td><?php echo $row[5] ?></td>
+                                            <td><?php echo $row[6] ?></td>
+                                            <td><?php echo $row[7] ?></td>
+                                            <td><?php echo $row[8] ?></td>
                                             <td align="center" >
                                                 <a href="editalternatif.php?id_alternatif=<?php echo $row['id_alternatif'] ?>" class="btn btn-warning">Edit</a>
                                                 <a href="deletealternatif.php?id_alternatif=<?php echo $row['id_alternatif']?>" class='btn btn-danger' onclick = "return confirm('Yakin Data Akan Dihapus');">Delete</a>

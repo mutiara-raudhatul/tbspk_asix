@@ -8,6 +8,14 @@ if(isset($_POST['submit'])){
     // ambil data dari formulir
     $id_alternatif    = $_POST['id_alternatif'];
     $nama_alternatif  = $_POST['nama_alternatif'];
+    $kelas_pokdakan  = $_POST['kelas_pokdakan'];
+    $usia_pokdakan  = $_POST['usia_pokdakan'];
+    $luas_kolam  = $_POST['luas_kolam'];
+    $lokasi_kolam  = $_POST['lokasi_kolam'];
+    $jumlah_anggota  = $_POST['jumlah_anggota'];
+    $rata2_produksi  = $_POST['rata2_produksi'];
+    $domisili_anggota  = $_POST['domisili_anggota'];
+
 
     $sqlcheck = "SELECT id_alternatif FROM tb_alternatif WHERE NOT EXISTS 
                 (SELECT id_alternatif FROM tb_alternatif WHERE id_alternatif='$id_alternatif')";
@@ -22,7 +30,7 @@ if(isset($_POST['submit'])){
     }
     else{
         // buat query update
-        $sql = "UPDATE tb_alternatif SET id_alternatif='$id_alternatif', nama_alternatif='$nama_alternatif'
+        $sql = "UPDATE tb_alternatif SET id_alternatif='$id_alternatif', nama_alternatif='$nama_alternatif', kelas_pokdakan='$kelas_pokdakan',usia_pokdakan='$usia_pokdakan',luas_kolam='$luas_kolam',lokasi_kolam='$lokasi_kolam',jumlah_anggota='$jumlah_anggota',rata2_produksi='$rata2_produksi',domisili_anggota='$domisili_anggota'
                 WHERE id_alternatif ='$id_alternatif'";
 
         $query = mysqli_query($db, $sql);
@@ -36,8 +44,9 @@ if(isset($_POST['submit'])){
         } else {
             echo '<script language="javascript">
                   alert ("Gagal menyimpan perubahan");
-                  window.location="alternatif.php";
+                  
                   </script>';
+            echo mysqli_error($db);
         }
     }
 } else {
