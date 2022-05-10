@@ -21,13 +21,6 @@ if(!isset($_SESSION["login"])){
 
     $id_alternatif = $data_alternatif['id_alternatif'];
     $nama_alternatif = $data_alternatif['nama_alternatif'];
-    $kelas_pokdakan = $data_alternatif['kelas_pokdakan'];
-    $usia_pokdakan = $data_alternatif['usia_pokdakan'];
-    $luas_kolam = $data_alternatif['luas_kolam'];
-    $lokasi_kolam = $data_alternatif['lokasi_kolam'];
-    $jumlah_anggota = $data_alternatif['jumlah_anggota'];
-    $rata2_produksi = $data_alternatif['rata2_produksi'];
-    $domisili_anggota = $data_alternatif['domisili_anggota'];
 
 
     // jika data yang di-edit tidak ditemukan
@@ -78,34 +71,7 @@ if(!isset($_SESSION["login"])){
                                     <label for="nama_alternatif" class="form-label">Nama alternatif</label>
                                     <input required class="form-control" type="text" name="nama_alternatif" value="<?php echo $nama_alternatif; ?>" placeholder="Nama alternatif">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="kelas_pokdakan" class="form-label">Kelas Pokdakan</label>
-                                    <input required class="form-control" type="text" name="kelas_pokdakan" value="<?php echo $kelas_pokdakan; ?>" placeholder="kelas Pokdakan">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="usia_pokdakan" class="form-label">Usia Pokdakan</label>
-                                    <input required class="form-control" type="text" name="usia_pokdakan" value="<?php echo $usia_pokdakan; ?>" placeholder="Usia Pokdakan">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="luas_kolam" class="form-label">Luas Kolam</label>
-                                    <input required class="form-control" type="text" name="luas_kolam" value="<?php echo $luas_kolam; ?>" placeholder="Luas Kolam">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="lokasi_kolam" class="form-label">Lokasi Kolam</label>
-                                    <input required class="form-control" type="text" name="lokasi_kolam" value="<?php echo $lokasi_kolam; ?>" placeholder="Lokasi Kolam">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                                    <input required class="form-control" type="text" name="jumlah_anggota" value="<?php echo $jumlah_anggota; ?>" placeholder="Jumlah Anggota">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="rata2_produksi" class="form-label">Rata-rata Produksi</label>
-                                    <input required class="form-control" type="text" name="rata2_produksi" value="<?php echo $rata2_produksi; ?>" placeholder="Rata-rata Produksi">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="domisili_anggota" class="form-label">Domisili Anggota</label>
-                                    <input required class="form-control" type="text" name="domisili_anggota" value="<?php echo $domisili_anggota; ?>" placeholder="Domisili Anggota">
-                                </div>
+                            
                                     <a href="alternatif.php" type="button" name="batal" class="btn btn-danger" onclick = "return confirm('Yakin batal mengubah data alternatif?');">Batal</a>
                                     <input type="submit" name="submit" class="btn btn-primary" onclick = "return confirm('Yakin akan mengubah data alternatif?');">
                                 </form>

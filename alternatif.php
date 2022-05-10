@@ -15,7 +15,7 @@ if(!isset($_SESSION["login"])){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Alternatif</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,13 +47,6 @@ if(!isset($_SESSION["login"])){
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Alternatif</th>
-                                            <th>Kelas Pokdakan</th>
-                                            <th>Usia Pokdakan</th>
-                                            <th>Luas Kolam</th>
-                                            <th>Lokasi Kolam</th>
-                                            <th>Jumlah Anggota</th>
-                                            <th>Rata-rata Produksi</th>
-                                            <th>Domisili Anggota</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -65,14 +58,8 @@ if(!isset($_SESSION["login"])){
                                             <tr>
                                             <td><?php echo $row[0] ?></td>
                                             <td><?php echo $row[1] ?></td>
-                                            <td><?php echo $row[2] ?></td>
-                                            <td><?php echo $row[3] ?></td>
-                                            <td><?php echo $row[4] ?></td>
-                                            <td><?php echo $row[5] ?></td>
-                                            <td><?php echo $row[6] ?></td>
-                                            <td><?php echo $row[7] ?></td>
-                                            <td><?php echo $row[8] ?></td>
-                                            <td align="center" >
+                                            <td text-align="center" >
+                                                <a href="adddetailalternatif.php?id_alternatif=<?php echo $row['id_alternatif'] ?>" class="btn btn-info">Detail</a>
                                                 <a href="editalternatif.php?id_alternatif=<?php echo $row['id_alternatif'] ?>" class="btn btn-warning">Edit</a>
                                                 <a href="deletealternatif.php?id_alternatif=<?php echo $row['id_alternatif']?>" class='btn btn-danger' onclick = "return confirm('Yakin Data Akan Dihapus');">Delete</a>
                                             </td>

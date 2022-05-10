@@ -50,7 +50,7 @@ $jml_kriteria =count($kriteria);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Topsis</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -402,7 +402,37 @@ $jml_kriteria =count($kriteria);
                                         ?>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                    Perangkingan Alternatif
                                     </div>
+                                    <div class="panel-body">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Nama Alternatif</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        $i=0;
+                                        $V=array();
+                                        arsort ($data);
+                                        foreach($data as $nama=>$krit){
+                                            echo "<tr>
+                                            <td>".(++$i)."</td>
+                                            <td>{$nama}</td>";
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                    <br><br><br><br> <br>
                                 </div>
                             </div>
                             </div> <!--container-->

@@ -18,8 +18,6 @@ include ("koneksi.php");
 //proses delete
 if(isset($_GET['id_subkriteria']) ){
 
-
-
     // buat query hapus
     $sql = "DELETE FROM tb_subkriteria WHERE id_subkriteria='$id_subkriteria'";
     $query = mysqli_query($db, $sql);
