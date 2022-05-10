@@ -6,7 +6,6 @@ if(!isset($_SESSION["login"])){
 }
     include ("koneksi.php");
     $id_alternatif_get = $_GET['id_alternatif'];
-    
     //ambil alternatif
     $sqlida= "SELECT * FROM tb_alternatif WHERE id_alternatif='$id_alternatif_get'";
     $queryida = mysqli_query($db, $sqlida);
@@ -14,7 +13,7 @@ if(!isset($_SESSION["login"])){
     $ida=$data_alternatif['id_alternatif'];
     $namaa=$data_alternatif['nama_alternatif'];
 
-    $sqlkriteria="SELECT * FROM tb_kriteria";
+    $sqlkriteria="SELECT * FROM tb_kriteria WHERE id_kriteria = 1";
     $querykriteria= mysqli_query($db,$sqlkriteria); 
     $data_k = mysqli_fetch_assoc($queryida);   
 
@@ -88,7 +87,7 @@ if(!isset($_SESSION["login"])){
                                         $k=$_POST['id_kriteria'];
 
                                         // for($i=1;$i<=$idc;$i++){
-                                        $query = "SELECT * FROM tb_subkriteria JOIN tb_kriteria WHERE tb_kriteria.id_kriteria=1";
+                                        $query = "SELECT * FROM tb_subkriteria JOIN tb_kriteria WHERE tb_kriteria.id_kriteria = 2";
                                         $result = mysqli_query($db, $query);
                                         
                                         if ($data_k['id_kriteria'])
