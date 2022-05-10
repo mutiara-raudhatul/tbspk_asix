@@ -79,33 +79,73 @@ if(!isset($_SESSION["login"])){
                                     <input required class="form-control" type="text" name="nama_alternatif" value="<?php echo $nama_alternatif; ?>" placeholder="Nama alternatif">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="kelas_pokdakan" class="form-label">Kelas Pokdakan</label>
-                                    <input required class="form-control" type="text" name="kelas_pokdakan" value="<?php echo $kelas_pokdakan; ?>" placeholder="kelas Pokdakan">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="usia_pokdakan" class="form-label">Usia Pokdakan</label>
-                                    <input required class="form-control" type="text" name="usia_pokdakan" value="<?php echo $usia_pokdakan; ?>" placeholder="Usia Pokdakan">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="luas_kolam" class="form-label">Luas Kolam</label>
-                                    <input required class="form-control" type="text" name="luas_kolam" value="<?php echo $luas_kolam; ?>" placeholder="Luas Kolam">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="lokasi_kolam" class="form-label">Lokasi Kolam</label>
-                                    <input required class="form-control" type="text" name="lokasi_kolam" value="<?php echo $lokasi_kolam; ?>" placeholder="Lokasi Kolam">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                                    <input required class="form-control" type="text" name="jumlah_anggota" value="<?php echo $jumlah_anggota; ?>" placeholder="Jumlah Anggota">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="rata2_produksi" class="form-label">Rata-rata Produksi</label>
-                                    <input required class="form-control" type="text" name="rata2_produksi" value="<?php echo $rata2_produksi; ?>" placeholder="Rata-rata Produksi">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="domisili_anggota" class="form-label">Domisili Anggota</label>
-                                    <input required class="form-control" type="text" name="domisili_anggota" value="<?php echo $domisili_anggota; ?>" placeholder="Domisili Anggota">
-                                </div>
+                                <label for="kelas_pokdakan" class="form-label">Kelas Pokdakan</label>
+                                <select required class="form-select" name="kelas_pokdakan" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value="Kelas Utama">Kelas Utama</option>
+                                    <option value="Kelas Madya">Kelas Madya</option>
+                                    <option value="Kelas Pemula">Kelas Pemula</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="usia_pokdakan" class="form-label">Usia Pokdakan</label>
+                                <select required class="form-select" name="usia_pokdakan" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value=">5 Tahun">>5 Tahun</option>
+                                    <option value="3-5 Tahun">3-5 Tahun</option>
+                                    <option value="1-3 Tahun">1-3 Tahun</option>
+                                    <option value="0-1 Tahun">0-1 Tahun</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="luas_kolam" class="form-label">Luas Kolam</label>
+                                <select required class="form-select" name="luas_kolam" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value=">400 m2">>400 m2</option>
+                                    <option value="300-400 m2">300-400 m2</option>
+                                    <option value="200-300 m2">200-300 m2</option>
+                                    <option value="100-200 m2">100-200 m2</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lokasi_kolam" class="form-label">Lokasi Kolam</label>
+                                <select required class="form-select" name="lokasi_kolam" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value="Sangat Baik">Sangat Baik</option>
+                                    <option value="Baik">Baik</option>
+                                    <option value="Kurang Baik">Kurang Baik</option>
+                                    <option value="Tidak Baik">Tidak Baik</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
+                                <select required class="form-select" name="jumlah_anggota" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value=">20 Orang">>20 Orang</option>
+                                    <option value="15-20 Orang">15-20 Orang</option>
+                                    <option value="10-15 Orang">10-15 Orang</option>
+                                    <option value="5-10 Orang">5-10 Orang</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rata2_produksi" class="form-label">Rata-rata Produksi</label>
+                                <select required class="form-select" name="rata2_produksi" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value=">15 Kg/m3">>15 Kg/m3</option>
+                                    <option value="10-15 Kg/m3">10-15 Kg/m3</option>
+                                    <option value="7-10 Kg/m3">7-10 Kg/m3</option>
+                                    <option value="<7 Kg/m3"><7 Kg/m3</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="domisili_anggota" class="form-label">Domisili Anggota</label>
+                                <select required class="form-select" name="domisili_anggota" aria-label="Default select example">
+                                    <option autofocus value="" hidden>Select</option>
+                                    <option value="Mayoritas anggota berdomisili di desa/kampung yang sama dengan lokasi kolam">Mayoritas anggota berdomisili di desa/kampung yang sama dengan lokasi kolam</option>
+                                    <option value="Mayoritas anggota berdomisili di desa/kampung yang berbeda namun tidak terlalu jauh dengan lokasi kolam">Mayoritas anggota berdomisili di desa/kampung yang berbeda namun tidak terlalu jauh dengan lokasi kolam</option>
+                                    <option value="Mayoritas anggota berdomisili jauh dari lokasi kolam">Mayoritas anggota berdomisili jauh dari lokasi kolam</option>
+                                </select>
+                            </div>
                                     <a href="alternatif.php" type="button" name="batal" class="btn btn-danger" onclick = "return confirm('Yakin batal mengubah data alternatif?');">Batal</a>
                                     <input type="submit" name="submit" class="btn btn-primary" onclick = "return confirm('Yakin akan mengubah data alternatif?');">
                                 </form>
