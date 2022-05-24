@@ -83,15 +83,24 @@ if(!isset($_SESSION["login"])){
 
             $sql    = "SELECT * FROM tb_alternatif";
             $tambah = $db->query($sql);
+            
+            $sqlcek="SELECT nama_alternatif FROM tb_alternatif WHERE nama_alternatif='$nama_alternatif'";
+            $cek_proses= mysqli_query($db, $sqlcek);
+            $data_alternatif = mysqli_fetch_array ($cek_proses, MYSQLI_NUM);
 
-            if ($row = $tambah->fetch_row()) {
+                if($data_alternatif>0){
+                    echo "<script>alert('Maaf, Alternatif tersebut sudah Ada!') </script>";
+                    echo "<script>window.location.href = \"alternatif.php\" </script>";
+                } else {
+                    if ($row = $tambah->fetch_row()) {
 
-                $masuk = "INSERT INTO tb_alternatif VALUES ('$id_alternatif','$nama_alternatif')";
-                $buat  = $db->query($masuk);
-                
-                echo "<script>alert('Input Data Berhasil') </script>";
-                // echo "<script>window.location.href = \"addalternatif.php\" </script>";
-            }
+                        $masuk = "INSERT INTO tb_alternatif VALUES ('$id_alternatif','$nama_alternatif')";
+                        $buat  = $db->query($masuk);
+                        
+                        echo "<script>alert('Input Data Berhasil') </script>";
+                        // echo "<script>window.location.href = \"addalternatif.php\" </script>";
+                    }
+                }
             }
         ?>
 

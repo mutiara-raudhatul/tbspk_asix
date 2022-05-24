@@ -65,7 +65,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Better Solutions For Your Organization</h1>
+          <h1>Pemilihan Kelompok Penerima Bantuan Budidaya Ikan</h1>
           <h2>This application helps you when making decisions</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="register.php" class="btn-get-started scrollto">SIGN UP</a>
