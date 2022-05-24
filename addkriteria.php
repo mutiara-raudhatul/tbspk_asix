@@ -106,7 +106,7 @@ if(!isset($_SESSION["login"])){
             $data_kriteria = mysqli_fetch_array ($cek_proses, MYSQLI_NUM);
 
             if($data_kriteria>0){
-\                echo "<script>alert('Maaf, kriteria tersebut sudah Ada!') </script>";
+                echo "<script>alert('Maaf, kriteria tersebut sudah Ada!') </script>";
             } else {
                 if ($row = $tambah->fetch_row()) {
 
