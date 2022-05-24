@@ -100,14 +100,24 @@ if(!isset($_SESSION["login"])){
             $sql    = "SELECT * FROM tb_kriteria";
             $tambah = $db->query($sql);
 
-            if ($row = $tambah->fetch_row()) {
 
-                $masuk = "INSERT INTO tb_kriteria VALUES ('$id_kriteria','$nama_kriteria','$bobot','$cost_benefit')";
-                $buat  = $db->query($masuk);
+            $sqlcek="SELECT nama_kriteria FROM tb_kriteria WHERE nama_kriteria='$nama_kriteria'";
+            $cek_proses= mysqli_query($db, $sqlcek);
+            $data_kriteria = mysqli_fetch_array ($cek_proses, MYSQLI_NUM);
 
-                echo "<script>alert('Input Data Berhasil') </script>";
-                echo "<script>window.location.href = \"kriteria.php\" </script>";
+            if($data_kriteria>0){
+\                echo "<script>alert('Maaf, kriteria tersebut sudah Ada!') </script>";
+            } else {
+                if ($row = $tambah->fetch_row()) {
+
+                    $masuk = "INSERT INTO tb_kriteria VALUES ('$id_kriteria','$nama_kriteria','$bobot','$cost_benefit')";
+                    $buat  = $db->query($masuk);
+    
+                    echo "<script>alert('Input Data Berhasil') </script>";
+                    echo "<script>window.location.href = \"kriteria.php\" </script>";
+                }
             }
+
             }
         ?>
 
