@@ -7,6 +7,9 @@ if(!isset($_SESSION["login"])){
 //koneksi
 include ("koneksi.php");
 
+// Turn off all error reporting 
+error_reporting(0);
+
 $tampil = $db->query("SELECT b.nama_alternatif,c.nama_kriteria,a.nilai,c.bobot
       FROM
         tb_topsis a

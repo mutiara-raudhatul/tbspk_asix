@@ -74,14 +74,16 @@ if(!isset($_SESSION["login"])){
                             <div class="card-body"> </div>
                             <form class="form" action="prosesadddetailalternatif.php" method="post">
                                         <div class="container">
-                                            <div class="row">
-                                            <div class="col-sm">
+                                       
+                                                                              
+                                        <div class="row">
+                                            <div class="col-1">
                                                 <div class="form-group">
-                                                    <label for="id_alternatif" class="form-label">Id Alternatif</label>
-                                                    <input required class="form-control" type="text" name="id_alternatif" value="<?php echo $ida ?>" readonly>
+                                                    <label hidden for="id_alternatif" class="form-label">Id Alternatif</label>
+                                                    <input hidden required class="form-control" type="text" name="id_alternatif" value="<?php echo $ida ?>" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-sm">
+                                            <div class="col-4">
                                             <div class="form-group">
                                                 <label>kriteria</label>
                                                     <select class="form-control" name="kriteria" id="kriteria">
@@ -89,7 +91,7 @@ if(!isset($_SESSION["login"])){
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-sm">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label>subkriteria</label>
                                                     <select class="form-control" name="subkriteria" id="subkriteria">
@@ -99,10 +101,20 @@ if(!isset($_SESSION["login"])){
                                             </div>
                                             <div class="col-sm">
                                                 <div class="form-group">
-                                                <label>Nilai</label>
-                                                <input class="form-control" type="number" name="nilai" value="nilai">
+                                                    <label hidden>nilai</label>
+                                                    <select hidden class="form-control" name="nilai" id="nilai">
+                                                        <!-- <option value="" selected></option> -->
+                                                    </select>
                                                 </div>
                                             </div>
+                                       
+                                            <!-- <div class="col-sm">
+                                                <div class="form-group">
+                                                <label>Nilai</label>
+                                                <input class="form-control" type="number" id="nilai" name="nilai" value="nilai">
+                                                </div>
+
+                                            </div> -->
                                         </div>                               
                                                                         
                                     <div class="navbar bg-dark fixed-bottom">
@@ -137,19 +149,36 @@ if(!isset($_SESSION["login"])){
                                                 });
                                             });
 
-                                            // $("#subkriteria").change(function(){
-                                            // var kabupaten = $("#subkriteria").val();
-                                            //     $.ajax({
-                                            //         type: 'POST',
-                                            //         url: "get_nilai.php",
-                                            //         data: {subkriteria: subkriteria},
-                                            //         cache: false,
-                                            //         success: function(msg){
-                                            //         $("#nilai").html(msg);
-                                            //         }
-                                            //     });
-                                            // });
+                                            $("#subkriteria").change(function(){
+                                            var subkriteria = $("#subkriteria").val();
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: "get_nilai.php",
+                                                    data: {subkriteria: subkriteria},
+                                                    cache: false,
+                                                    success: function(msg){
+                                                    $("#nilai").html(msg);
+                                                    }
+                                                });
+                                            });
+                                            
+
                                         });
+                                        
+                                        // $(document).ready(function() {
+                                        // $('#subkriteria').change(function() { // Jika select box id kurir dipilih
+                                        //     var subkriteria = $(this).val(); // Ciptakan variabel kurir
+                                        //         $.ajax({
+                                        //             type: 'POST', // Metode pengiriman data menggunakan POST
+                                        //         url: 'get_nilai.php', // File pemroses data
+                                        //         data: 'subkriteria=' + subkriteria, // Data yang akan dikirim ke file pemroses yaitu ada 2 data
+                                        //         success: function(response) { // Jika berhasil
+                                        //             $('#nilai').val(response); // Berikan hasilnya ke id biaya
+                                        //             }
+                                        //     });
+                                        //     });
+                                        // });
+                                        
                                     </script>
                                 
                                     <input class="btn btn-primary" type="submit" name="simpan" value="Tambah">

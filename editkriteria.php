@@ -74,7 +74,7 @@ if(!isset($_SESSION["login"])){
                                 </div>
                                 <div class="mb-3">
                                     <label for="bobot" class="form-label">Bobot</label>
-                                    <input required type="number" min="0" class="form-control" type="text" name="bobot" value="<?php echo $bobot; ?>" placeholder="Bobot">
+                                    <input required type="float" min="0" class="form-control" type="text" name="bobot" value="<?php echo $bobot; ?>" placeholder="Bobot">
                                 </div>
                                 <div class="mb-3">
                                     <label for="cost_benefit" class="form-label">Cost/Benefit</label>
