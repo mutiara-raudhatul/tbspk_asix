@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2022 at 12:00 PM
+-- Generation Time: Sep 28, 2022 at 05:56 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.15
 
@@ -40,7 +40,11 @@ CREATE TABLE `tb_alternatif` (
 INSERT INTO `tb_alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
 (1, 'Sangkuriang Jaya Agam'),
 (2, 'Talgo Agam'),
-(3, 'Restu Ibu');
+(3, 'Restu Ibu'),
+(4, 'Gadih Ranti'),
+(5, 'Mato Kaciak palito Agam'),
+(6, 'Baduri'),
+(7, 'Maju Jaya');
 
 -- --------------------------------------------------------
 
@@ -60,13 +64,13 @@ CREATE TABLE `tb_kriteria` (
 --
 
 INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `bobot`, `cost_benefit`) VALUES
-(1, 'Kelas Pokdakan', 25, 'Benefit'),
-(2, 'Usia Pokdakan', 20, 'Benefit'),
-(3, 'Luas Kolam', 15, 'Benefit'),
-(4, 'Lokasi Kolam', 5, 'Benefit'),
-(5, 'Jumlah Anggota Pokdakan', 10, 'Benefit'),
-(6, 'Rata-Rata Produksi', 15, 'Benefit'),
-(7, 'Domisili Anggota', 10, 'Benefit');
+(1, 'Kelas Pokdakan', 0.25, 'Benefit'),
+(2, 'Usia Pokdakan', 0.2, 'Benefit'),
+(3, 'Luas Kolam', 0.15, 'Benefit'),
+(4, 'Lokasi Kolam', 0.05, 'Benefit'),
+(5, 'Jumlah Anggota Pokdakan', 0.1, 'Benefit'),
+(6, 'Rata-Rata Produksi', 0.15, 'Benefit'),
+(7, 'Domisili Anggota', 0.1, 'Benefit');
 
 -- --------------------------------------------------------
 
@@ -131,7 +135,6 @@ CREATE TABLE `tb_topsis` (
 --
 
 INSERT INTO `tb_topsis` (`id_alternatif`, `id_kriteria`, `id_subkriteria`, `nilai`) VALUES
-(1, 1, 'S101', 1),
 (1, 2, 'S203', 3),
 (1, 3, 'S304', 4),
 (1, 4, 'S403', 3),
@@ -151,17 +154,50 @@ INSERT INTO `tb_topsis` (`id_alternatif`, `id_kriteria`, `id_subkriteria`, `nila
 (3, 4, 'S403', 3),
 (3, 5, 'S502', 2),
 (3, 6, 'S603', 3),
-(3, 7, 'S703', 3);
+(3, 7, 'S703', 3),
+(4, 1, 'S101', 1),
+(4, 2, 'S202', 2),
+(4, 4, 'S403', 3),
+(4, 7, 'S703', 3),
+(5, 1, 'S101', 1),
+(5, 2, 'S202', 2),
+(5, 3, 'S303', 3),
+(5, 4, 'S403', 3),
+(5, 5, 'S502', 2),
+(5, 6, 'S602', 2),
+(5, 7, 'S703', 3),
+(6, 1, 'S101', 1),
+(6, 2, 'S203', 3),
+(6, 3, 'S304', 4),
+(6, 4, 'S403', 3),
+(6, 5, 'S502', 2),
+(6, 6, 'S602', 2),
+(4, 6, 'S603', 3),
+(4, 3, 'S304', 4),
+(4, 5, 'S502', 2),
+(1, 1, 'S101', 1),
+(6, 7, 'S703', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Table structure for table `tb_users`
 --
 
-CREATE TABLE `tb_user` (
-  `id_user` int(10) NOT NULL
+CREATE TABLE `tb_users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_users`
+--
+
+INSERT INTO `tb_users` (`id`, `username`, `password`) VALUES
+(1, 'admin2', '$2y$10$gsD/p3s8VC9c7.E3FOpp0.ZYNj6jcJXozGNGMGWnmQexydLEzuOna'),
+(2, 'admin', '$2y$10$7Jj0xMIqBb./bXezrxEl1OuRnQ0xjvcUsVDg8hl73trB9KtiWEszC'),
+(3, 'admin1', '$2y$10$k9VEwb1JjCXsrmLGiXOQGuUcx6lRxgZjF1gclDotrWOUbY6DERICm');
 
 --
 -- Indexes for dumped tables
@@ -190,15 +226,15 @@ ALTER TABLE `tb_subkriteria`
 -- Indexes for table `tb_topsis`
 --
 ALTER TABLE `tb_topsis`
-  ADD KEY `tb_topsis_ibfk_1` (`id_alternatif`),
   ADD KEY `tb_topsis_ibfk_2` (`id_kriteria`),
-  ADD KEY `tb_topsis_ibfk_3` (`id_subkriteria`);
+  ADD KEY `tb_topsis_ibfk_3` (`id_subkriteria`),
+  ADD KEY `tb_topsis_ibfk_1` (`id_alternatif`);
 
 --
--- Indexes for table `tb_user`
+-- Indexes for table `tb_users`
 --
-ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -208,19 +244,19 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_alternatif`
 --
 ALTER TABLE `tb_alternatif`
-  MODIFY `id_alternatif` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_alternatif` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_kriteria`
 --
 ALTER TABLE `tb_kriteria`
-  MODIFY `id_kriteria` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kriteria` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT for table `tb_users`
 --
-ALTER TABLE `tb_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tb_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -236,7 +272,7 @@ ALTER TABLE `tb_subkriteria`
 -- Constraints for table `tb_topsis`
 --
 ALTER TABLE `tb_topsis`
-  ADD CONSTRAINT `tb_topsis_ibfk_1` FOREIGN KEY (`id_alternatif`) REFERENCES `tb_alternatif` (`id_alternatif`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_topsis_ibfk_1` FOREIGN KEY (`id_alternatif`) REFERENCES `tb_alternatif` (`id_alternatif`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_topsis_ibfk_2` FOREIGN KEY (`id_kriteria`) REFERENCES `tb_kriteria` (`id_kriteria`) ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_topsis_ibfk_3` FOREIGN KEY (`id_subkriteria`) REFERENCES `tb_subkriteria` (`id_subkriteria`) ON UPDATE CASCADE;
 COMMIT;
